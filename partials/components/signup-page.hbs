@@ -1,0 +1,38 @@
+<div class="gh-signup-page" id="gh-signup-page">
+    <div class="gh-signup-content">
+        <button
+            class="gh-signup-close gh-signup-close-corner"
+            id="gh-signup-close-corner"
+            aria-label="Close"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <h1 class="gh-signup-title">{{@site.title}}</h1>
+        <p class="gh-signup-description">{{@site.description}}</p>
+        <div class="gh-signup-form-wrapper">
+            <script
+                src="https://cdn.jsdelivr.net/ghost/signup-form@~0.1/umd/signup-form.min.js"
+                data-button-color="#1647fb"
+                data-button-text-color="#FFFFFF"
+                data-site="http://localhost:2368/"
+                data-locale="zh"
+                async
+            ></script>
+        </div>
+
+        <button class="gh-signup-close" id="gh-signup-close">Maybe later</button>
+    </div>
+</div>
