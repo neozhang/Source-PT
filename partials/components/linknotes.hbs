@@ -1,0 +1,17 @@
+{{#get
+    "posts" filter="tag:linknotes" limit="3"
+    as |linknotes|
+}}
+    {{#if linknotes}}
+        <section class="gh-container gh-outer gh-linknotes">
+            <div class="gh-container-inner gh-inner gh-linknotes-inner">
+                <h2 class="gh-container-title">Linknotes</h2>
+                <div class="gh-linknotes-feed">
+                    {{#foreach linknotes}}
+                        {{> "post-card-2" lazyLoad=true}}
+                    {{/foreach}}
+                </div>
+            </div>
+        </section>
+    {{/if}}
+{{/get}}

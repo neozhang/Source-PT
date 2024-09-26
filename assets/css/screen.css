@@ -28,6 +28,7 @@ production stylesheet in assets/built/screen.css
   12.1. List style
   12.2. Grid style
   12.3. No image list
+  12.4. Linknotes
 13. Sidebar
 14. Post/page
   14.1. Article
@@ -62,10 +63,13 @@ production stylesheet in assets/built/screen.css
     --color-secondary-text: rgb(0 0 0 / 0.55);
     --color-border: rgb(0 0 0 / 0.08);
     --color-dark-border: rgb(0 0 0 / 0.55);
-    --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
     --font-serif: "EB Garamond", Georgia, Times, serif;
     --font-serif-alt: Georgia, Times, serif;
-    --font-mono: "JetBrains Mono", Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace;
+    --font-mono: "JetBrains Mono", Menlo, Consolas, Monaco, "Liberation Mono",
+        "Lucida Console", monospace;
     --container-width: 1320px;
     --container-gap: clamp(24px, 1.7032rem + 1.9355vw, 48px);
     --grid-gap: 42px;
@@ -88,7 +92,9 @@ production stylesheet in assets/built/screen.css
 /* 3. Resets
 /* ---------------------------------------------------------- */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -106,7 +112,11 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
     display: block;
     height: auto;
     max-width: 100%;
@@ -116,15 +126,29 @@ iframe {
     display: block;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
     font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     overflow-wrap: break-word;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     line-height: 1.2;
 }
 
@@ -280,7 +304,7 @@ button.gh-form-input {
     cursor: pointer;
 }
 
-:is(.has-serif-title,.has-mono-title) button.gh-form-input {
+:is(.has-serif-title, .has-mono-title) button.gh-form-input {
     padding-inline-start: 50px;
 }
 
@@ -300,7 +324,7 @@ button.gh-form-input {
     color: var(--color-secondary-text);
 }
 
-:is(.has-serif-title,.has-mono-title) .gh-form > svg {
+:is(.has-serif-title, .has-mono-title) .gh-form > svg {
     left: 16px;
 }
 
@@ -384,7 +408,10 @@ button.gh-form-input {
 .gh-canvas,
 .kg-width-full.kg-content-wide {
     --main: min(var(--content-width, 720px), 100% - var(--container-gap) * 2);
-    --wide: minmax(0, calc((var(--container-width, 1200px) - var(--content-width, 720px)) / 2));
+    --wide: minmax(
+        0,
+        calc((var(--container-width, 1200px) - var(--content-width, 720px)) / 2)
+    );
     --full: minmax(var(--container-gap), 1fr);
 
     display: grid;
@@ -933,6 +960,15 @@ Search                         LOGO                    Login Subscribe
     font-weight: 725;
     letter-spacing: -0.014em;
     line-height: 1.3;
+    display: inline;
+}
+
+.gh-card-title.featured::before {
+    content: "*";
+    color: var(--ghost-accent-color);
+    position: absolute;
+    top: 0.25rem;
+    left: -1.5rem;
 }
 
 .gh-card-link:hover .gh-card-title {
@@ -950,16 +986,14 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-card-meta {
-    display: flex;
-    gap: 4px;
-    flex-wrap: wrap;
-    align-items: center;
+    display: inline;
     padding-bottom: 1px;
     font-size: 1.25rem;
     font-weight: 500;
     line-height: 1.05;
     letter-spacing: -0.004em;
     color: var(--color-secondary-text);
+    text-transform: uppercase;
 }
 
 .gh-card-meta svg {
@@ -1050,7 +1084,10 @@ Search                         LOGO                    Login Subscribe
     margin-top: 14px;
 }
 
-.gh-header.is-magazine :is(.gh-header-left, .gh-header-right) .gh-card:last-child .gh-card-image {
+.gh-header.is-magazine
+    :is(.gh-header-left, .gh-header-right)
+    .gh-card:last-child
+    .gh-card-image {
     display: none;
 }
 
@@ -1141,7 +1178,10 @@ Search                         LOGO                    Login Subscribe
 }
 
 @media (max-width: 991px) {
-    .gh-header.is-magazine .gh-header-left .gh-card:nth-child(2) .gh-card-image {
+    .gh-header.is-magazine
+        .gh-header-left
+        .gh-card:nth-child(2)
+        .gh-card-image {
         display: none;
     }
 }
@@ -1317,7 +1357,10 @@ Search                         LOGO                    Login Subscribe
 }
 
 @media (max-width: 991px) {
-    .gh-header.is-highlight .gh-header-middle .gh-card:nth-child(2) .gh-card-image {
+    .gh-header.is-highlight
+        .gh-header-middle
+        .gh-card:nth-child(2)
+        .gh-card-image {
         display: none;
     }
 }
@@ -1416,7 +1459,8 @@ Search                         LOGO                    Login Subscribe
     flex-direction: column;
     align-items: center;
     gap: 36px;
-    padding: clamp(48px, 3.64vw + 33.45px, 80px) clamp(40px, 2.73vw + 29.09px, 64px);
+    padding: clamp(48px, 3.64vw + 33.45px, 80px)
+        clamp(40px, 2.73vw + 29.09px, 64px);
     text-align: center;
     background-color: var(--color-lighter-gray);
 }
@@ -1426,7 +1470,7 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-cta-title {
-    font-size: clamp(2.8rem,1.36vw + 2.25rem,4rem);
+    font-size: clamp(2.8rem, 1.36vw + 2.25rem, 4rem);
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.021em;
@@ -1566,6 +1610,7 @@ Search                         LOGO                    Login Subscribe
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     column-gap: var(--grid-gap);
+    max-width: 1080px;
 }
 
 :is(.gh-featured, .gh-cta) + .gh-container {
@@ -1577,7 +1622,9 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-navigation + .gh-container .gh-container-title,
-:is(.paged, .tag-template, .author-template) .gh-container:not(.has-sidebar) .gh-container-title {
+:is(.paged, .tag-template, .author-template)
+    .gh-container:not(.has-sidebar)
+    .gh-container-title {
     display: none;
 }
 
@@ -1641,11 +1688,14 @@ Search                         LOGO                    Login Subscribe
     grid-column: 3 / span 12;
 }
 
-.gh-container.is-list.no-image:not(.has-sidebar) :is(.gh-container-title, .gh-main, .gh-more) {
+.gh-container.is-list.no-image:not(.has-sidebar)
+    :is(.gh-container-title, .gh-main, .gh-more) {
     grid-column: 4 / span 10;
 }
 
-.gh-header:is(.is-highlight, .is-magazine) ~ .gh-container.is-grid:not(.has-sidebar) :is(.gh-container-title, .gh-main, .gh-more) {
+.gh-header:is(.is-highlight, .is-magazine)
+    ~ .gh-container.is-grid:not(.has-sidebar)
+    :is(.gh-container-title, .gh-main, .gh-more) {
     grid-column: 1 / -1;
 }
 
@@ -1671,7 +1721,7 @@ Search                         LOGO                    Login Subscribe
     font-weight: 550;
     letter-spacing: 0.025em;
     text-transform: uppercase;
-    border-bottom: 1px solid var(--color-border);
+    /* border-bottom: 1px solid var(--color-border); */
 }
 
 .gh-container:not(:has(.gh-card)) .gh-container-title {
@@ -1679,7 +1729,8 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-container .gh-feed {
-    gap: var(--grid-gap);
+    /* gap: var(--grid-gap); */
+    gap: 24px;
 }
 
 .gh-container .gh-card-meta:not(:empty) {
@@ -1702,7 +1753,7 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-container.is-list .no-image .gh-card-link {
-    padding-block: 20px;
+    /* padding-block: 20px; */
 }
 
 .gh-container.is-list .gh-card-image {
@@ -1722,18 +1773,18 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-container.is-list .gh-card-title {
-    --factor: 1.05;
+    /* --factor: 1.05; */
 }
 
 .gh-container.is-list .no-image .gh-card-title {
-    --factor: 1.2;
+    /* --factor: 1.2; */
 }
 
 .gh-container.is-list .gh-card-excerpt {
-    margin-top: 6px;
+    margin-top: 8px;
 }
 
-.gh-container.is-list .gh-card + .gh-card::before {
+/* .gh-container.is-list .gh-card + .gh-card::before {
     position: absolute;
     top: calc(var(--grid-gap) / -2);
     left: 0;
@@ -1741,7 +1792,7 @@ Search                         LOGO                    Login Subscribe
     width: 100%;
     height: 1px;
     background-color: var(--color-border);
-}
+} */
 
 .home-template .gh-container.is-list .gh-card:first-child:before {
     display: none;
@@ -1804,6 +1855,51 @@ Search                         LOGO                    Login Subscribe
 
 .gh-container.is-list.no-image .gh-card-image {
     display: none;
+}
+
+/* 12.4. Linknotes */
+
+.gh-linknotes {
+    background-color: var(--color-lighter-gray);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.gh-linknotes-inner {
+    padding: 48px 0px;
+    /* display: flex;
+    flex-direction: column;
+    gap: 24px; */
+}
+
+.gh-linknotes-inner .gh-container-title {
+    display: block !important;
+    grid-column: 1 / -1 !important;
+}
+
+.gh-linknote-title {
+    margin-bottom: 24px;
+    display: inline;
+}
+
+.gh-linknote-meta {
+    text-transform: uppercase;
+    display: inline;
+    color: var(--color-secondary-text);
+}
+
+.gh-linknotes-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    grid-column: 1 / span 16;
+}
+
+.gh-linknote-excerpt {
+    color: var(--color-secondary-text);
 }
 
 /* 13. Sidebar
@@ -2099,7 +2195,9 @@ headings, text, images and lists. We deal with cards lower down. */
 }
 
 /* Remove space between full-width cards */
-.gh-content > .kg-width-full + .kg-width-full:not(.kg-width-full.kg-card-hascaption + .kg-width-full) {
+.gh-content
+    > .kg-width-full
+    + .kg-width-full:not(.kg-width-full.kg-card-hascaption + .kg-width-full) {
     margin-top: 0;
 }
 
@@ -2111,15 +2209,17 @@ unless a heading is the very first element in the post content */
 
 /* Add drop cap setting */
 .post-template .gh-content.drop-cap > p:first-of-type:first-letter {
-    margin :0 0.2em 0em 0;
+    margin: 0 0.2em 0em 0;
     font-size: 3.1em;
-    float:left;
+    float: left;
     line-height: 1;
     margin-left: -1px;
     font-weight: 700;
 }
 
-.has-serif-body.post-template .gh-content.drop-cap > p:first-of-type:first-letter {
+.has-serif-body.post-template
+    .gh-content.drop-cap
+    > p:first-of-type:first-letter {
     font-size: 3.2em;
 }
 
@@ -2349,7 +2449,7 @@ blockquote.kg-blockquote-alt {
 
 .kg-card.kg-button-card .kg-btn {
     height: unset;
-    padding: .6em 1.2em;
+    padding: 0.6em 1.2em;
     text-align: center;
     font-size: 1em;
     line-height: 1.2em;
@@ -2643,15 +2743,15 @@ figcaption a {
 .has-serif-title .gh-card-title {
     line-height: 1.15;
     letter-spacing: -0.006em;
-    font-size: calc(2.0rem*var(--factor, 1))
+    font-size: calc(2rem * var(--factor, 1));
 }
 
 .has-serif-title .gh-featured-feed .gh-card-title {
-    font-size: calc(1.6rem*var(--factor, 1))
+    font-size: calc(1.6rem * var(--factor, 1));
 }
 
 .has-mono-title .gh-featured-feed .gh-card-title {
-    font-size: calc(1.5rem*var(--factor, 1));
+    font-size: calc(1.5rem * var(--factor, 1));
     letter-spacing: 0;
 }
 
@@ -2660,7 +2760,7 @@ figcaption a {
 }
 
 .has-mono-title .gh-card-title {
-    font-size: calc(1.8rem*var(--factor, 1));
+    font-size: calc(1.8rem * var(--factor, 1));
     line-height: 1.2;
 }
 
@@ -2686,16 +2786,24 @@ figcaption a {
     letter-spacing: 0.0005em;
 }
 
-.has-serif-body .gh-header.is-magazine .gh-header-inner > .gh-card .gh-card-excerpt,
+.has-serif-body
+    .gh-header.is-magazine
+    .gh-header-inner
+    > .gh-card
+    .gh-card-excerpt,
 .has-serif-body .gh-header.is-highlight .gh-card:first-child .gh-card-excerpt {
     font-size: 1.8rem;
     letter-spacing: -0.001em;
 }
 
-.has-serif-title .gh-header.is-magazine .gh-header-inner>.gh-card .gh-card-title,
+.has-serif-title
+    .gh-header.is-magazine
+    .gh-header-inner
+    > .gh-card
+    .gh-card-title,
 .has-serif-title .gh-header.is-highlight .gh-header-left .gh-card-title {
     font-weight: 550;
-    font-size: clamp(3.2rem,1.82vw + 2.47rem,4.9rem)
+    font-size: clamp(3.2rem, 1.82vw + 2.47rem, 4.9rem);
 }
 
 .has-serif-body .gh-about-description {
@@ -2809,7 +2917,7 @@ figcaption a {
 }
 
 .gh-footer-signup-header {
-    font-size: calc(clamp(2.8rem,1.36vw + 2.25rem,4rem) * var(--factor, 1));
+    font-size: calc(clamp(2.8rem, 1.36vw + 2.25rem, 4rem) * var(--factor, 1));
     font-weight: 700;
     letter-spacing: -0.03em;
 }
@@ -3028,7 +3136,10 @@ figcaption a {
     background-size: 264px 88px;
 }
 
-@media (-webkit-min-device-pixel-ratio: 1.1), (-webkit-min-device-pixel-ratio: 1.09375), (min-resolution: 105dpi), (min-resolution: 1.1dppx) {
+@media (-webkit-min-device-pixel-ratio: 1.1),
+    (-webkit-min-device-pixel-ratio: 1.09375),
+    (min-resolution: 105dpi),
+    (min-resolution: 1.1dppx) {
     .pswp--svg .pswp__button,
     .pswp--svg .pswp__button--arrow--left::before,
     .pswp--svg .pswp__button--arrow--right::before {
@@ -3154,7 +3265,9 @@ figcaption a {
     text-transform: uppercase;
 }
 
-.pswp__caption__center .post-caption-meta-item + .post-caption-meta-item::before {
+.pswp__caption__center
+    .post-caption-meta-item
+    + .post-caption-meta-item::before {
     padding: 0 4px;
     content: "\02022";
 }
