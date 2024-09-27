@@ -19,9 +19,9 @@
 
                 {{!-- Homepage --}}
                 {{#match feed "home"}}
-                    {{#get "posts" include="authors" limit="12"}}
+                    {{#get "posts" include="tags" limit="12"}}
                         {{#foreach posts}}
-                            {{> "post-card" lazyLoad=true}}
+                            {{> "post-card" post=. lazyLoad=true}}
                         {{/foreach}}
                     {{/get}}
                 {{/match}}

@@ -957,11 +957,22 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-card-title {
-    font-size: calc(1.9rem * var(--factor, 1));
+    font-size: calc(1.9rem * var(--factor, 1.1));
     font-weight: 725;
     letter-spacing: -0.014em;
     line-height: 1.3;
     display: inline;
+}
+
+.tag-linknotes .gh-card-title {
+    color: var(--color-darker-gray);
+    opacity: 0.6;
+    font-size: calc(1.9rem * var(--factor, 0.8));
+}
+
+.tag-linknotes .gh-card-excerpt {
+    color: var(--color-dark-gray);
+    font-size: calc(1.45rem * 0.9);
 }
 
 .gh-card-title.featured::before {

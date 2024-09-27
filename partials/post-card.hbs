@@ -1,11 +1,9 @@
-<article class="gh-card {{post_class}}{{#unless @custom.show_images_in_feed}} no-image{{/unless}}">
+<article class="gh-card {{post_class}}">
     <a class="gh-card-link" href="{{url}}">
         <div class="gh-card-wrapper">
             <h3 class="gh-card-title is-title{{#if featured}} featured{{/if}}">{{title}}</h3>
             <div class="gh-card-meta">
                 <time class="gh-card-date" datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
-                {{!-- <span class="bull">&bull;</span> --}}
-                {{!-- <span class="gh-card-readtime">{{reading_time minute="1 min" minutes="% min"}}</span> --}}
             </div>
             {{#if custom_excerpt}}
                 <p class="gh-card-excerpt is-body">{{custom_excerpt}}</p>
