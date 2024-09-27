@@ -171,12 +171,6 @@
                 "default": "List",
                 "group": "homepage"
             },
-            "show_images_in_feed": {
-                "type": "boolean",
-                "default": true,
-                "group": "homepage",
-                "visibility": "post_feed_style:List"
-            },
             "show_publication_info_sidebar": {
                 "type": "boolean",
                 "default": false,
